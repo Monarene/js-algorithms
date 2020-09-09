@@ -14,10 +14,25 @@ var testAlgorithm = function (stringBody) {
     return result;
   };
 
+  this.endsWithIng = function (stringBodyB) {
+    result = [];
+    var stringBodyB = stringBodyB.split(" ");
+    stringBodyB.forEach((element) => {
+      var lowStr = element.toLowerCase();
+      if (lowStr.endsWith("ing")) {
+        result.push(element);
+      }
+    });
+
+    return result;
+  };
+
   var palindromeResult = this.isPalindrome(stringBody);
+  var endsWithResults = this.endsWithIng(stringBody);
 
   return {
     palindrome: palindromeResult,
+    ing: endsWithResults,
   };
 };
 
@@ -37,4 +52,4 @@ const isPalindrome = function (stringBody) {
   return result;
 };
 
-console.log(testAlgorithm("ommo fmom ollo"));
+console.log(testAlgorithm("ommo fmom ollo following going"));
